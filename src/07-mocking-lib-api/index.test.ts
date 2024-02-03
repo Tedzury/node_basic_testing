@@ -1,10 +1,12 @@
 // Uncomment the code below and write your tests
-/* import axios from 'axios';
-import { throttledGetDataFromApi } from './index'; */
+import axios from 'axios';
+import { throttledGetDataFromApi } from './index';
 
 describe('throttledGetDataFromApi', () => {
   test('should create instance with provided base url', async () => {
-    // Write your test here
+    const spy = jest.spyOn(axios, 'create');
+    const createValue = { baseURL: 'https://jsonplaceholder.typicode.com' };
+    expect(spy).toHaveBeenCalledWith(createValue);
   });
 
   test('should perform request to correct provided url', async () => {
